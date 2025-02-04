@@ -222,32 +222,32 @@ a, input[type=submit] {
 
 .ybtn-accent-color {
     color: #ffffff;
-    background-color: #9400D3;
+    background-color: #00008B;
 }
 
 .ybtn-accent-color:hover, .ybtn-accent-color:focus {
     color: #ffffff;
-    background-color: #9400D3;
+    background-color: #00008B;
 }
 
 .ybtn-header-color {
     color: #ffffff;
-    background-color: #9400D3;
+    background-color: #00008B;
 }
 
 .ybtn-header-color:hover, .ybtn-header-color:focus {
     color: #ffffff;
-    background-color: #9400D3;
+    background-color: #00008B;
 }
 
 .ybtn-other-color {
     color: #ffffff;
-    background-color: #9400D3;
+    background-color: #00008B;
 }
 
 .ybtn-other-color:hover, .ybtn-other-color:focus {
     color: #ffffff;
-    background-color: #9400D3;
+    background-color: #00008B;
 }
 
 .ybtn-purple-text {
@@ -358,7 +358,7 @@ a, input[type=submit] {
     background-image: none;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-color: #1886eb;
+    background-color: #9400D3;
     -webkit-transform: skewY(-10deg);
     -moz-transform: skewY(-10deg);
     -ms-transform: skewY(-10deg);
@@ -388,7 +388,7 @@ a, input[type=submit] {
     top: 0;
     height: 100%;
     background-image: inherit;
-    background-color: #1886eb;
+    background-color: #9400D3;
     -webkit-transform: skewY(0deg);
     -moz-transform: skewY(0deg);
     -ms-transform: skewY(0deg);
@@ -409,7 +409,7 @@ a, input[type=submit] {
         top: 0;
         width: 100%;
         height: 60%;
-        background-color: #1886eb;
+        background-color: #9400D3;
         -webkit-transform: skewY(-10deg);
         -moz-transform: skewY(-10deg);
         -ms-transform: skewY(-10deg);
@@ -510,7 +510,7 @@ svg.logo text {
     position: relative;
     cursor: pointer;
     padding: 9px 30px;
-    background-color: #9400D3;
+    background-color: #00008B;
     border-radius: 10px;
     color: #ffffff;
     opacity: 1;
@@ -526,7 +526,7 @@ svg.logo text {
 
 .support-button-holder a.support-button:hover, .support-button-holder a.support-button:focus {
     border-radius: 10px;
-    background-color: #9400D3 !important;
+    background-color: #00008B !important;
     color: #ffffff !important;
     opacity: 1 !important;
 }
