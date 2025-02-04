@@ -97,7 +97,7 @@ a, input[type=submit] {
     text-align: center;
     font-size: 24px;
     font-weight: 700;
-    color: #9400D3;
+    color: #2F3C52;
     position: relative;
     margin-top: 30px;
     margin-top: 0;
@@ -110,7 +110,7 @@ a, input[type=submit] {
 }
 
 .row-title.grey-color:after {
-    background-color: #44494f;
+    background-color: #9400D3;
     bottom: -6px;
 }
 
@@ -118,7 +118,7 @@ a, input[type=submit] {
     position: relative;
     text-align: center;
     font-size: 19px;
-    color: #9400D3;
+    color: #7D8EA8;
     font-weight: 400;
     margin-bottom: 50px;
 }
@@ -128,7 +128,7 @@ a, input[type=submit] {
     content: "";
     width: 156px;
     height: 2px;
-    background-color: #9400D3;
+    background-color: #D9E3F2;
     left: 50%;
     margin-left: -78px;
     bottom: -15px;
