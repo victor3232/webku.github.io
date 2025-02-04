@@ -610,7 +610,7 @@ svg.logo text {
 }
 
 .dropdown-menu > li > a {
-    color: #69677e;
+    color: #00008B;
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
@@ -622,8 +622,8 @@ svg.logo text {
 }
 
 .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
-    color: #3195ff;
-    background-color: #f7f6f8;
+    color: #00008B;
+    background-color: #00008B;
 }
 
 .dropdown-menu.dropdown-mega {
