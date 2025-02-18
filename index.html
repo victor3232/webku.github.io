@@ -1,6 +1,62 @@
 <!doctype html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-Up Notifikasi</title>
+    <style>
+        .popup {
+            display: none; /* Sembunyikan pop-up secara default */
+            position: fixed; 
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .overlay {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay" id="overlay"></div>
+<div class="popup" id="popup">
+    <h2>Hayo Promo Selalu Ada!</h2>
+    <p>Diskon 5% Minimal Pembelian Diatas Rp15.000. Gasken Mang.</p>
+    <button onclick="closePopup()">Tutup</button>
+</div>
+
+<script>
+    function showPopup() {
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    window.onload = showPopup; // Panggil fungsi showPopup saat halaman dimuat
+</script>
+
+</body>
+</html>
+
+<html>
+    <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
 <title>HITS SSH</title>
@@ -13,73 +69,12 @@
 </head>
 
 <body>
-    
 </div>
 <div id="header-holder" class="main-header">
     <div class="bg-animation">
         <div class="graphic-show">
-            <img class="fix-size" src="images/graphic1.png" alt=""
-                <head>
-            <body>
-                <title>HITS SSH</title>
-    <style>
-        }
-        .popup {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            width: 300px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        .avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-        }
-        .button {
-            background-color: #25D366;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .button:hover {
-            background-color: #20c357;
-        }
-        .close {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="popup">
-    <button class="close" onclick="closePopup()">×</button>
-    <img src="images/logooo.png> width="250%" height="500%">
-    <h2>HITS SSH HOSTING</h2>
-    <p>Admin Fast Respon</p>
-    <p>Hosting Lengkap</p>
-    <p>Harga Paling Murah</p>
-    <button class="button"> <a href="index.html">MENU UTAMA</a>
-    </button>
-</div>
-
-<script>
-    function closePopup() {
-        document.querySelector('.popup').style.display = 'none';
-    }
-</script>
-            <script>
+            <img class="fix-size" src="images/graphic1.png" alt="">
+               <script>
                 alert("Diskon 5% Untuk Pembelian Diatas Rp15.000. Silahkan Contact Admin");
             </script>
             <img class="img img1" src="images/graphic1.png" alt="">
