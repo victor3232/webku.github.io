@@ -1,62 +1,102 @@
 <!doctype html>
 <html>
 <head>
-    <script type='text/javascript' src='https://cdn.prinsh.com/NathanPrinsley-effect/efek-salju.js'></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HITS SSH</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
         .popup {
-            display: none; /* Sembunyikan pop-up secara default */
-            position: fixed; 
-            left: 50%;
+            display: none;
+            position: fixed;
             top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            padding: 25px;
-            background-color: #E6E6FA;
+            background: white;
             border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
+            max-width: 400px;
+            width: 80%;
+        }
+        .popup-header {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
         }
         .overlay {
-            display: none; 
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
             z-index: 999;
+        }
+        .btn-close {
+            margin-top: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-close:hover {
+            background: #0056b3;
         }
     </style>
 </head>
 <body>
 
 <div class="overlay" id="overlay"></div>
+
 <div class="popup" id="popup">
-    <h2>Hayo Promo Selalu Ada!</h2>
-    <p>Diskon 5% Minimal Pembelian Diatas Rp15.000. Gasken Mang.</p>
-    <button onclick="closePopup()">Tutup</button>
+    <div class="popup-header">INFORMASI PENTING</div>
+    <p><strong>Serba Serbi Diskon Untuk Semua Produk Kami Horeee</strong></p>
+    <p>Kami Akan Selalu Memberikan Diskon Menarik Setiap Hari nya, Hanya Di HITS SSH</p>
+    <p><strong>Berikut Ini Detail Diskon yang kami berikan untuk Setiap Pembelian Produk:</strong></p>
+    <ul>
+        <li>Daiatas Rp15.000 : DISKON 5%</li>
+        <li>Diatas Rp40.000 : DISKON 6%</li>
+        <li>Diatas Rp70.000 : DISKON 7%</li>
+        <li>Diatas Rp150.00 : DISKON 8%</li>
+        <li>Kami Juga Open Reseller Dengan Harga Murah & Berkualitas</li>
+        <li>Diskon Dapat Berubah-Ubah Seiring Waktu</li>
+    </ul>
+    <p><strong>Syarat & Ketentuan:</strong></p>
+    <ol>
+        <li>Berlaku Untuk Transaksi Manual Lewat Admin
+        <li>Tidak Berlaku Jika Order Lewat Website
+        <li>Support Repeat Order Dengan Diskon
+        <li>Jika Ada Yang Ditanyakan Silahkan Contact Admin</li>
+    </ol>
+    <button class="btn-close" onclick="closePopup()">Tutup</button>
 </div>
 
 <script>
-    function showPopup() {
+    function openPopup() {
+        document.getElementById('overlay').style.display = 'block';
         document.getElementById('popup').style.display = 'block';
-        document.getElementById('overlay').style.display = 'none';
     }
 
     function closePopup() {
-        document.getElementById('popup').style.display = 'none';
         document.getElementById('overlay').style.display = 'none';
+        document.getElementById('popup').style.display = 'none';
     }
 
-    window.onload = showPopup; // Panggil fungsi showPopup saat halaman dimuat
+    // Open the popup when the page loads
+    window.onload = openPopup;
 </script>
-    <script type='text/javascript' src='https://cdn.prinsh.com/NathanPrinsley-effect/efek-salju.js'></script>
 
 </body>
 </html>
-
 <html>
     <head>
         <script type='text/javascript' src='https://cdn.prinsh.com/NathanPrinsley-effect/efek-salju.js'></script>
@@ -78,7 +118,7 @@
         <div class="graphic-show">
             <img class="fix-size" src="images/graphic1.png" alt="">
                <script>
-                alert("Diskon 5% Untuk Pembelian Diatas Rp15.000. Silahkan Contact Admin");
+                alert("Ubur - Ubur Ikan Lele, Ada Diskon Gede Nih Le. Gaskenn Le");
             </script>
             <img class="img img1" src="images/graphic1.png" alt="">
             <img class="img img2" src="images/graphic2.png" alt="">
