@@ -7,92 +7,96 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            max-width: 400px;
-            width: 80%;
-        }
-        .popup-header {
-            background: #007BFF;
-            color: white;
-            padding: 10px;
-            border-radius: 8px 8px 0 0;
-        }
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.4);
         }
-        .btn-close {
-            margin-top: 10px;
-            background: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 600px;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
             cursor: pointer;
         }
-        .btn-close:hover {
-            background: #0056b3;
+        .info {
+            background-color: #e7f7ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
 
-<div class="overlay" id="overlay"></div>
-
-<div class="popup" id="popup">
-    <div class="popup-header">INFORMASI PENTING</div>
-    <p><strong>Serba Serbi Diskon Untuk Semua Produk Kami Horeee</strong></p>
-    <p>Kami Akan Selalu Memberikan Diskon Menarik Setiap Hari nya, Hanya Di HITS SSH</p>
-    <p><strong>Berikut Ini Detail Diskon yang kami berikan untuk Setiap Pembelian Produk:</strong></p>
-    <ul>
-        <li>Daiatas Rp15.000 : DISKON 5%</li>
-        <li>Diatas Rp40.000 : DISKON 6%</li>
-        <li>Diatas Rp70.000 : DISKON 7%</li>
-        <li>Diatas Rp150.00 : DISKON 8%</li>
-        <li>Kami Juga Open Reseller Dengan Harga Murah & Berkualitas</li>
-        <li>Diskon Dapat Berubah-Ubah Seiring Waktu</li>
-    </ul>
-    <p><strong>Syarat & Ketentuan:</strong></p>
-    <ol>
-        <li>Berlaku Untuk Transaksi Manual Lewat Admin
-        <li>Tidak Berlaku Jika Order Lewat Website
-        <li>Support Repeat Order Dengan Diskon
-        <li>Jika Ada Yang Ditanyakan Silahkan Contact Admin</li>
-    </ol>
-    <button class="btn-close" onclick="closePopup()">Tutup</button>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeBtn">&times;</span>
+        <h2>Berita & Informasi!</h2>
+        <div class="info">22 Februari 2025, 10:39 WIB<br>Kami informasikan saat ini Support Pembayaran All Payment. Qris, VA Bank, Gopay Secara Otomatis 🙏</div>
+        <div class="info">20 Februari 2025, 11:39 WIB<br>Diskon Berlaku Hanya Pada Transaksi Manual Lewat Admin 🐦 </div>
+        <div class="info">19 Februari 2025, 14:16 WIB<br>Diskon 5% Untuk Pembelian Diatas Rp50.000 🫶</div>
+        <div class="info">01 Februari 2025, 10:08 WIB<br>Website Kami Sudah Menggunakan Protect DDoS, Sehingga Tidak Perlu Khawatir Website Down Saat Transaksi 😎👌🔥</div>
+        <button class="button" id="readBtn">Saya sudah membacanya ✓</button>
+    </div>
 </div>
 
 <script>
-    function openPopup() {
-        document.getElementById('overlay').style.display = 'block';
-        document.getElementById('popup').style.display = 'block';
+    // Menampilkan pop-up saat halaman dimuat
+    window.onload = function() {
+        document.getElementById('myModal').style.display = "block";
     }
 
-    function closePopup() {
-        document.getElementById('overlay').style.display = 'none';
-        document.getElementById('popup').style.display = 'none';
+    // Menutup pop-up saat tombol "tutup" ditekan
+    document.getElementById('closeBtn').onclick = function() {
+        document.getElementById('myModal').style.display = "none";
     }
 
-    // Open the popup when the page loads
-    window.onload = openPopup;
+    // Menutup pop-up saat tombol "Saya sudah membacanya" ditekan
+    document.getElementById('readBtn').onclick = function() {
+        document.getElementById('myModal').style.display = "none";
+    }
+
+    // Menutup pop-up jika pengguna mengklik di luar pop-up
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('myModal')) {
+            document.getElementById('myModal').style.display = "none";
+        }
+    }
 </script>
 
 </body>
