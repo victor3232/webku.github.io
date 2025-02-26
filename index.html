@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-  <head>
+  <html>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HITS SSH</title>
@@ -9,81 +10,98 @@
             margin: 0;
             padding: 0;
         }
-        .popup {
-            display: none; /* Sembunyikan popup secara default */
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            width: 300px; /* Lebar popup */
-            text-align: center;
-        }
-
-        .popup img {
-            width: 100%; /* Sesuaikan gambar dengan lebar popup */
-            border-radius: 10px 10px 0 0; 
-        }
-
-        .popup-content {
-            padding: 15px;
-        }
-
-        .overlay {
-            display: none; /* Sembunyikan overlay secara default */
-            position: fixed;
-            top: 0;
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 999; /* Zet index overlay dibawah popup */
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.4);
         }
-
-        .close-btn {
-            background: blue;
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 600px;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .info {
+            background-color: #e7f7ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .button {
+            background-color: #1E90FF;
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 10px 20px;
             cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-
-<div class="overlay" id="overlay"></div>
-
-<div class="popup" id="popup">
-    <img src="https://github.com/zuzuq/images/raw/main/imagesv1/promo.png" alt="Pop-Up Image">
-    <div class="popup-content">
-        <p>Buruan Serbu <strong>DISKONYA</strong></p>
-        <p>Berlaku Selama Bulan Ramadhan</p>
-        <p>Hanya Di <a href="https://hits-ssh.web.id">HITS SSH</p></a></p>
-        <button class="close-btn" id="close-btn">Saya Sudah Membaca</button>
+  
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeBtn">&times;</span>
+        <button style="font-size : 20px; background-color : red; color : white;">Berita & Informasi</button>
+        <p>
+          <div class="info"><strong>27 Februari 2025, 05:39 WIB</strong><br>Diskon Hanya Berlaku Untuk Transaksi Manual Lewat Admin.</div>
+                  <div class="info"><strong>27 Februari 2025, 05:39 WIB</strong><br>Nikmati Diskon Rp3.000 Di Bulan Ramadhan Untuk Semua Produk. </div>
+        <div class="info"><strong>20 Januari 2025, 10:39 WIB</strong><br>Kami informasikan saat ini Support Pembayaran Otomatis All Payment.<br> ( QRIS, VA BANK & GOPAY ).</div>
+        <div class="info"><strong>11 Januari 2025, 10:08 WIB</strong><br>Website Kami Sudah Menggunakan <strong><font color="red">Protect DDoS</strong></font>, Sehingga Tidak Akan Mengganggu Transaksi Anda.</div>
+        <button class="button" id="readBtn">Saya sudah membacanya !</button>
     </div>
 </div>
 
 <script>
     // Menampilkan pop-up saat halaman dimuat
     window.onload = function() {
-        document.getElementById('popup').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('myModal').style.display = "block";
     }
 
-    // Menutup pop-up saat tombol ditutup diklik
-    document.getElementById('close-btn').onclick = function() {
-        document.getElementById('popup').style.display = 'none';
-        document.getElementById('overlay').style.display = 'none';
+    // Menutup pop-up saat tombol "tutup" ditekan
+    document.getElementById('closeBtn').onclick = function() {
+        document.getElementById('myModal').style.display = "none";
+    }
+
+    // Menutup pop-up saat tombol "Saya sudah membacanya" ditekan
+    document.getElementById('readBtn').onclick = function() {
+        document.getElementById('myModal').style.display = "none";
+    }
+
+    // Menutup pop-up jika pengguna mengklik di luar pop-up
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('myModal')) {
+            document.getElementById('myModal').style.display = "none";
+        }
     }
 </script>
 
 </body>
-</html>
+  </html>
 
 <html>
     <head>
