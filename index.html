@@ -49,109 +49,125 @@
 </body>
 </html>
 
-  <html>
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HITS SSH</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.4);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; 
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; 
-            max-width: 600px;
-            border-radius: 8px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .info {
-            background-color: #e7f7ff;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .button {
-            background-color: #1E90FF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .button:hover {
-            background-color: #45a049;
-        }
-    </style>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notifikasi Topup</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      background-color: white;
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    .popup img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .popup-content {
+      padding: 20px;
+      background-color: #1e1e1e;
+      color: white;
+      text-align: center;
+    }
+
+    .popup-content h3 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .popup-content p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .popup-content a {
+      color: #4aa8ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background-color: #ffffffaa;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .popup-checkbox {
+      margin-top: 10px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-checkbox input {
+      margin-right: 5px;
+    }
+  </style>
 </head>
 <body>
-  
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="closeBtn">&times;</span>
-        <button style="font-size : 20px; background-color : red; color : white;">Berita & Informasi</button>
-        <p>
-      <div class="info"><strong>27 Februari 2025, 05:39 WIB</strong><br>Nikmati Diskon Rp2.000 Di Bulan Ramadhan Untuk Semua Produk. <br>[ Berlaku Untuk Transaksi Manual Via Admin ]</br></div>
-        <div class="info"><strong>20 Januari 2025, 10:39 WIB</strong><br>Kami informasikan saat ini Support Pembayaran Otomatis All Payment.<br>[ QRIS, VA BANK & GOPAY ].</div>
-      <div class="info"><strong>15 Januari 2025, 14.22 WIB</strong><br>Penambahan Produk Baru VPS Khusus Tunneling, Silahkan Di Order.</div>
-        <div class="info"><strong>11 Januari 2025, 10:08 WIB</strong><br>Website Kami Sudah Menggunakan <b><font color="red">Protect DDoS</b></font>, Sehingga Tidak Akan Mengganggu Transaksi Anda.</div>
-        <button class="button" id="readBtn">Saya sudah membacanya !</button>
+
+<div class="popup" id="notifPopup">
+  <button class="popup-close" onclick="closePopup()">×</button>
+  <img src="https://github.com/zuzuq/otw/raw/main/audio/b8d465da-9bf5-4f75-97a1-46afbc8861d9.jpeg" width="30" height="30">
+  <div class="popup-content">
+    <h3>PENGUMUMAN</h3>
+    <p>Open 24 Jam Nonstop</p>
+    <p>Proses Topup Hitungan Detik!</p>
+    <p>KUPON DISKON : <strong>WSN</strong></p>
+    <p>Ikuti Instagram Kami <a href="https://instagram.com/wesintopup" target="_blank">@WesinTopup</a></p>
+
+    <div class="popup-checkbox">
+      <input type="checkbox" id="dontShow" onchange="dontShowAgain()" />
+      <label for="dontShow">Jangan tampilkan lagi</label>
     </div>
+  </div>
 </div>
 
 <script>
-    // Menampilkan pop-up saat halaman dimuat
-    window.onload = function() {
-        document.getElementById('myModal').style.display = "block";
-    }
+  function closePopup() {
+    document.getElementById("notifPopup").style.display = "none";
+  }
 
-    // Menutup pop-up saat tombol "tutup" ditekan
-    document.getElementById('closeBtn').onclick = function() {
-        document.getElementById('myModal').style.display = "none";
-    }
+  function dontShowAgain() {
+    localStorage.setItem("hideNotif", "true");
+    closePopup();
+  }
 
-    // Menutup pop-up saat tombol "Saya sudah membacanya" ditekan
-    document.getElementById('readBtn').onclick = function() {
-        document.getElementById('myModal').style.display = "none";
+  window.onload = function () {
+    if (localStorage.getItem("hideNotif") === "true") {
+      document.getElementById("notifPopup").style.display = "none";
     }
-
-    // Menutup pop-up jika pengguna mengklik di luar pop-up
-    window.onclick = function(event) {
-        if (event.target == document.getElementById('myModal')) {
-            document.getElementById('myModal').style.display = "none";
-        }
-    }
+  }
 </script>
 
 </body>
-  </html>
+</html>
+
 
 <html>
     <head>
