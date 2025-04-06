@@ -154,13 +154,13 @@
   }
 
   function dontShowAgain() {
-    localStorage.setItem("hideNotif", "none");
+    localStorage.setItem("hideNotif", "false");
     closePopup();
   }
 
   window.onload = function () {
-    if (localStorage.getItem("hideNotif") === "none") {
-      document.getElementById("notifPopup").style.display = "none";
+    if (localStorage.getItem("hideNotif") === "true") {
+      document.getElementById("notifPopup").style.display = "false";
     }
   }
 </script>
