@@ -52,131 +52,119 @@
 <html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>HITS SSH</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notifikasi Topup</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f2f5;
     }
 
     .popup {
       position: fixed;
-      top: 10%;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       width: 90%;
-      max-width: 450px;
-      background-color: white;
+      max-width: 400px;
       border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-      z-index: 9999;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      background-color: white;
       overflow: hidden;
+      z-index: 9999;
     }
 
-    .popup-header {
-      padding: 16px 20px;
+    .popup img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .popup-content {
+      padding: 20px;
+      background-color: #1e1e1e;
+      color: white;
+      text-align: center;
+    }
+
+    .popup-content h3 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .popup-content p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .popup-content a {
+      color: #blue;
+      text-decoration: none;
       font-weight: bold;
-      font-size: 20px;
-      border-bottom: 1px solid #e0e0e0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
-    .popup-header button {
-      background: none;
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background-color: white;
       border: none;
-      font-size: 24px;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
       cursor: pointer;
     }
 
-    .popup-body {
-      max-height: 400px;
-      overflow-y: auto;
-      padding: 15px 20px;
+    .popup-checkbox {
+      margin-top: 10px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .notifikasi {
-      margin-bottom: 20px;
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      padding: 15px;
-      background-color: #fafafa;
-    }
-
-    .notifikasi .tag {
-      background-color: #446dff;
-      color: white;
-      font-size: 12px;
-      padding: 2px 8px;
-      border-radius: 8px;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-
-    .notifikasi h4 {
-      margin: 0 0 8px 0;
-      font-size: 16px;
-    }
-
-    .notifikasi p {
-      margin: 0;
-      font-size: 14px;
-      color: #333;
-    }
-
-    .highlight {
-      background-color: #d6f5d6;
-      display: inline;
+    .popup-checkbox input {
+      margin-right: 5px;
     }
   </style>
 </head>
 <body>
 
-<div class="popup" id="popupNotif">
-  <div class="popup-header">
-    Untuk Semua Informasi Scroll Sampai Bawah !!
-    <button onclick="document.getElementById('popupNotif').style.display='none'">&times;</button>
-  </div>
-  <div class="popup-body">
-    <div class="notifikasi">
-      <div class="tag">Pengumuman</div>
-      <small>5 Maret 2025 17:57:22</small>
-      <h4>Promo Yang Akan Datang</h4>
-      <p>Walau Diskon Ramadhan Selesai Jangan Khawatir.</p>
-      <p>Ada Diskon Selanjutnya <span class="highlight">Diskon Hanya Berlaku Untuk Transaksi Manual Via Admin</span></p>
-      <p>Jadi Tunggu Apa Lagi Serbu Yok</p>
-    </div>
+<div class="popup" id="notifPopup">
+  <button class="popup-close" onclick="closePopup()">×</button>
+  <img src="https://files.catbox.moe/g3nhxh.png" width="30" height="30">
+  <div class="popup-content">
+    <h3>PENGUMUMAN</h3>
+    <p>Open 24 Jam Nonstop</p>
+    <p>Hosting Lenkap & Termurah !!!</p>
+    <p>PROMO DISKON : <strong>Rp2.000</strong></p>
+    <p>Ikuti Telegram Kami <a href="https://t.me/hitsssh" target="_blank">@HITSSSH</a></p>
 
-    <div class="notifikasi">
-      <div class="tag">Pengumuman</div>
-      <small>23 Februari 2025 21:59:12</small>
-      <h4>Informasi Pembayaran</h4>
-      <p>Kami Sudah Menerima Segala Jenis Pembayaran Qris, VA BANk & Gopay Secara Otomatis</p>
-    </div>
-
-    <div class="notifikasi">
-      <div class="tag">Pengumuman</div>
-      <small>20 Februari 2025 13:31:40</small>
-      <h4>Penambahan Layanan</h4>
-      <p>Tersedia VPS Khusus Tunneling</p>
-      <p>Tersedia Cloud Panel DO,AWS,VULTR</p>
-        </div>
-        
-        <div class="notifikasi">
-      <div class="tag">Pengumuman</div>
-      <small>1 Januari 2025 17:57:22</small>
-      <h4>Upgrade Keamanan Website</h4>
-      <p>Website Kami Sudah Menggunakan Keamanan Canggih.</p>
-      <p>Seperti <span class="highlight">Protect DDoS Layer 7 & Layer 4, SQL Injection & XSS</span></p>
-      <p>Jadi Tidak Akan Mengganggu Transaksi</p>
-    </div>
-    </ul>
+    <div class="popup-checkbox">
+      <input type="checkbox" id="dontShow" onchange="dontShowAgain()" />
+      <label for="dontShow">Jangan tampilkan lagi</label>
     </div>
   </div>
 </div>
+
+<script>
+  function closePopup() {
+    document.getElementById("notifPopup").style.display = "none";
+  }
+
+  function dontShowAgain() {
+    localStorage.setItem("hideNotif", "none");
+    closePopup();
+  }
+
+  window.onload = function () {
+    if (localStorage.getItem("hideNotif") === "false") {
+      document.getElementById("notifPopup").style.display = "none";
+    }
+  }
+</script>
 
 </body>
 </html>
