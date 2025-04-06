@@ -52,119 +52,120 @@
 <html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Notifikasi Topup</title>
+  <meta charset="UTF-8">
+  <title>Popup Promo</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', sans-serif;
+      background-color: #001e6c;
     }
 
-    .popup {
+    /* Overlay */
+    .popup-overlay {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* Popup box */
+    .popup-box {
+      background: #072a7d;
       width: 90%;
       max-width: 400px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      background-color: white;
+      border-radius: 25px 25px 0 0;
       overflow: hidden;
-      z-index: 9999;
-    }
-
-    .popup img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .popup-content {
-      padding: 20px;
-      background-color: #1e1e1e;
       color: white;
-      text-align: center;
+      animation: slideUp 0.5s ease;
     }
 
-    .popup-content h3 {
-      margin-top: 0;
+    .popup-header {
+      padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f3fd9;
+    }
+
+    .popup-header h3 {
+      margin: 0;
       font-size: 18px;
     }
 
-    .popup-content p {
-      margin: 5px 0;
-      font-size: 14px;
-    }
-
-    .popup-content a {
-      color: #blue;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .popup-close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background-color: white;
+    .popup-header button {
+      background: none;
       border: none;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      font-size: 20px;
+      color: white;
+      font-size: 24px;
       cursor: pointer;
     }
 
-    .popup-checkbox {
-      margin-top: 10px;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .popup-content {
+      padding: 15px;
+      text-align: center;
     }
 
-    .popup-checkbox input {
-      margin-right: 5px;
+    .popup-content img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .popup-content h4 {
+      margin: 10px 0 5px;
+      font-size: 16px;
+      color: #ffdc64;
+    }
+
+    .popup-content p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        background: rgba(0, 0, 0, 0);
+      }
+      to {
+        background: rgba(0, 0, 0, 0.5);
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="popup" id="notifPopup">
-  <button class="popup-close" onclick="closePopup()">×</button>
-  <img src="https://files.catbox.moe/g3nhxh.png" width="30" height="30">
-  <div class="popup-content">
-    <h3>PENGUMUMAN</h3>
-    <p>Open 24 Jam Nonstop</p>
-    <p>Hosting Lenkap & Termurah !!!</p>
-    <p>PROMO DISKON : <strong>Rp2.000</strong></p>
-    <p>Ikuti Telegram Kami <a href="https://t.me/hitsssh" target="_blank">@HITSSSH</a></p>
-
-    <div class="popup-checkbox">
-      <input type="checkbox" id="dontShow" onchange="dontShowAgain()" />
-      <label for="dontShow">Jangan tampilkan lagi</label>
+<div class="popup-overlay" id="popupPromo">
+  <div class="popup-box">
+    <div class="popup-header">
+      <h3>INFORMASI !</h3>
+      <button onclick="document.getElementById('popupPromo').style.display='none'">&times;</button>
+    </div>
+    <div class="popup-content">
+      <img src="https://files.catbox.moe/g3nhxh.png?text=Promo+Mobile+Legends" alt="Promo Gambar">
+      <h4>Open 24 Jam Nonstop 🔥</h4>
+      <p>Nikmati Diskon <strong>Rp 2.000</strong><br>Promo Terbatas Gas Order Abangkuh !!!</p>
+      <p>Ikuti Telegram Kami <a href="https://t.me/hitsssh" target="_blank">@HITSSSH</p>
     </div>
   </div>
 </div>
-
-<script>
-  function closePopup() {
-    document.getElementById("notifPopup").style.display = "none";
-  }
-
-  function dontShowAgain() {
-    localStorage.setItem("hideNotif", "none");
-    closePopup();
-  }
-
-  window.onload = function () {
-    if (localStorage.getItem("hideNotif") === "false") {
-      document.getElementById("notifPopup").style.display = "none";
-    }
-  }
-</script>
 
 </body>
 </html>
