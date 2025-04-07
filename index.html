@@ -49,109 +49,126 @@
 </body>
 </html>
 
-  <html>
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HITS SSH</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.4);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; 
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; 
-            max-width: 600px;
-            border-radius: 8px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .info {
-            background-color: #e7f7ff;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .button {
-            background-color: #1E90FF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .button:hover {
-            background-color: #45a049;
-        }
-    </style>
+<html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Popup Promo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #001e6c;
+    }
+
+    /* Overlay */
+    .popup-overlay {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* Popup box */
+    .popup-box {
+      background: #072a7d;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 25px 25px 0 0;
+      overflow: hidden;
+      color: white;
+      animation: slideUp 0.5s ease;
+    }
+
+    .popup-header {
+      padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f3fd9;
+    }
+
+    .popup-header h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .popup-header button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .popup-content {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .popup-content img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .popup-content h4 {
+      margin: 10px 0 5px;
+      font-size: 16px;
+      color: #ffdc64;
+    }
+
+    .popup-content p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        background: rgba(0, 0, 0, 0);
+      }
+      to {
+        background: rgba(0, 0, 0, 0.5);
+      }
+    }
+  </style>
 </head>
 <body>
-  
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="closeBtn">&times;</span>
-        <button style="font-size : 20px; background-color : red; color : white;">Berita & Informasi</button>
-        <p>
-      <div class="info"><strong>27 Februari 2025, 05:39 WIB</strong><br>Nikmati Diskon Rp2.000 Di Bulan Ramadhan Untuk Semua Produk. <br>[ Berlaku Untuk Transaksi Manual Via Admin ]</br></div>
-        <div class="info"><strong>20 Januari 2025, 10:39 WIB</strong><br>Kami informasikan saat ini Support Pembayaran Otomatis All Payment.<br>[ QRIS, VA BANK & GOPAY ].</div>
-      <div class="info"><strong>15 Januari 2025, 14.22 WIB</strong><br>Penambahan Produk Baru VPS Khusus Tunneling, Silahkan Di Order.</div>
-        <div class="info"><strong>11 Januari 2025, 10:08 WIB</strong><br>Website Kami Sudah Menggunakan <b><font color="red">Protect DDoS</b></font>, Sehingga Tidak Akan Mengganggu Transaksi Anda.</div>
-        <button class="button" id="readBtn">Saya sudah membacanya !</button>
+
+<div class="popup-overlay" id="popupPromo">
+  <div class="popup-box">
+    <div class="popup-header">
+      <h3>INFORMASI !</h3>
+      <button onclick="document.getElementById('popupPromo').style.display='none'">&times;</button>
     </div>
+    <div class="popup-content">
+      <img src="https://files.catbox.moe/g3nhxh.png?text=Promo+Mobile+Legends" alt="Promo Gambar">
+      <h4>Open 24 Jam Nonstop 🔥</h4>
+      <p>Nikmati Diskon <strong>Rp 2.000</strong><br>Promo Terbatas Gas Order Abangkuh !!!</p>
+      <p>Ikuti Telgram Kami <a href="https://t.me/hitsssh" target="_blank">@HITSSSH</p>
+    </div>
+  </div>
 </div>
 
-<script>
-    // Menampilkan pop-up saat halaman dimuat
-    window.onload = function() {
-        document.getElementById('myModal').style.display = "block";
-    }
-
-    // Menutup pop-up saat tombol "tutup" ditekan
-    document.getElementById('closeBtn').onclick = function() {
-        document.getElementById('myModal').style.display = "none";
-    }
-
-    // Menutup pop-up saat tombol "Saya sudah membacanya" ditekan
-    document.getElementById('readBtn').onclick = function() {
-        document.getElementById('myModal').style.display = "none";
-    }
-
-    // Menutup pop-up jika pengguna mengklik di luar pop-up
-    window.onclick = function(event) {
-        if (event.target == document.getElementById('myModal')) {
-            document.getElementById('myModal').style.display = "none";
-        }
-    }
-</script>
-
 </body>
-  </html>
+</html> 
 
 <html>
     <head>
