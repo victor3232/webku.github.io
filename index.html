@@ -848,6 +848,96 @@
         </div>
     </div>
 </div>
+  <html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita TopUpCepat</title>
+    <style>
+        body {
+            background-color: #111;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+        .news-item {
+            background-color: #222;
+            margin: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .news-item:hover {
+            background-color: #333;
+        }
+        .news-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .news-title {
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .news-content {
+            padding: 15px;
+            display: none;
+            background-color: #1a1a1a;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .news-content p {
+            margin: 0;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="news-item" onclick="toggleContent('content1')">
+    <div class="news-image">
+        <img src="https://files.catbox.moe/g3nhxh.png" alt="Honor of Kings">
+    </div>
+    <div class="news-title">
+        5 Hero Terkuat di Honor Of Kings Saat Ini, Cocok untuk Push Rank
+    </div>
+    <div class="news-content" id="content1">
+        <p>Honor of Kings menghadirkan banyak hero kuat yang dapat mendominasi arena pertempuran. Beberapa hero terbaik saat ini diantaranya adalah: 
+        <br>- Hero A: Memiliki damage besar.
+        <br>- Hero B: Lincah dan sulit ditangkap.
+        <br>- Hero C: Tank kuat dengan CC tinggi.
+        <br>Gunakan hero-hero ini untuk memudahkan push rank kamu!</p>
+    </div>
+</div>
+
+<div class="news-item" onclick="toggleContent('content2')">
+    <div class="news-image">
+        <img src="https://files.catbox.moe/g3nhxh.png" alt="Mobile Legends Event Silvanna">
+    </div>
+    <div class="news-title">
+        Cara Mendapatkan Skin Limited Event Galeri Silvanna – Mobile Legends
+    </div>
+    <div class="news-content" id="content2">
+        <p>Dalam event Galeri Silvanna, kamu harus mengumpulkan total 52 kartu normal untuk mendapatkan skin eksklusif "Classroom Charm". 
+        <br>Ikuti misi harian dan beli paket kartu untuk mempercepat progres kamu. Jangan lewatkan event terbatas ini sebelum berakhir!</p>
+    </div>
+</div>
+
+</body>
+  </html>
+  
 <div id="message2" class="container-fluid message-area normal-bg boxed">
     <div class="container">
         <div class="row">
